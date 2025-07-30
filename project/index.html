@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria BellaCrosta</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="img/Logo_BellaCrosta.png" alt="BellaCrosta Logo">
+                    <span>BellaCrosta</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#cardapio" class="nav-link">Cardápio</a></li>
+                    <li><a href="#sobre" class="nav-link">Sobre Nós</a></li>
+                    <li><a href="" class="nav-link">Entrar</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Chegue chegando... com sua mesa já esperando!</h1>
+            <p class="hero-subtitle">PIZZARIA BELLACROSTA</p>
+            <button class="cta-button">REALIZAR RESERVA</button>
+        </div>
+        <div class="hero-image">
+            <img src="img/Imagem_Banner.png" alt="Forno a lenha">
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pizza-slice"></i>
+                    </div>
+                    <h3>PIZZAS</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-calendar-minus"></i>
+                    </div>
+                    <h3>CARDÁPIO</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>RESERVAS</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3>SOBRE NÓS</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pizza Showcase -->
+    <section id="pizzas" class="pizza-showcase">
+        <div class="container">
+            <div class="showcase-header">
+                <h2>Satisfaça seus desejos de pizza hoje!</h2>
+                <p>Faça a descoberta de que se trata todo esse burburinho. Encomende hoje os seus favoritos ou visite nossa pizzaria para criar a sua pizza ideal!</p>
+            </div>
+            
+            <div class="pizza-carousel">
+                <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-container">
+                    <div class="pizza-slide active">
+                        <img src="https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop" alt="Pizza Margherita">
+                    </div>
+                    <div class="pizza-slide">
+                        <img src="https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop" alt="Pizza Pepperoni">
+                    </div>
+                    <div class="pizza-slide">
+                        <img src="https://images.pexels.com/photos/1653877/pexels-photo-1653877.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop" alt="Pizza Vegetariana">
+                    </div>
+                    <div class="pizza-slide">
+                        <img src="https://images.pexels.com/photos/1166120/pexels-photo-1166120.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop" alt="Pizza Rústica">
+                    </div>
+                </div>
+                <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            
+            <button class="reserve-btn">RESERVE AGORA!</button>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="cardapio" class="menu-section">
+        <div class="container">
+            <h2 class="section-title">BellaCrosta Cardápio</h2>
+            
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop" alt="Pizza de Queijo">
+                    </div>
+                    <h3>Pizza de Queijo</h3>
+                    <p>Cobertura clássica Pizza de Queijo Mussarela com molho de creme de sua escolha.</p>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop" alt="Pizza de Pepperoni">
+                    </div>
+                    <h3>Pizza de Pepperoni</h3>
+                    <p>Cobertura nossa clássica pizza de Pepperoni com molho e creme de sua escolha.</p>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.pexels.com/photos/1653877/pexels-photo-1653877.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop" alt="Pizza Vegetariana">
+                    </div>
+                    <h3>Pizza Vegetariana</h3>
+                    <p>Molho de tomate, mussarela, tomate cereja, cebola, cogumelos, pimentão, azeitona e orégano fresco.</p>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.pexels.com/photos/1166120/pexels-photo-1166120.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop" alt="Pizza Rústica">
+                    </div>
+                    <h3>Pizza Rústica</h3>
+                    <p>Molho de tomate, mussarela, linguiça tipo crocante, pimentão vermelho, cebola e azeitona preta.</p>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop" alt="Pizza Delicious">
+                    </div>
+                    <h3>Pizza Delicious</h3>
+                    <p>Uma mistura de Cogumelos Porcini e Fetas de Frutos Deliciosos, Mussarela, Cogumelos Frescos, Cebola Crocante.</p>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop" alt="Pizza de Tomate">
+                    </div>
+                    <h3>Pizza de Tomate</h3>
+                    <p>O Molho Premium Clássico, Tomate Cereja fresco, Pimentão Vermelho e um Buquê de Ervas Verdes.</p>
+                </div>
+            </div>
+            
+            <button class="view-menu-btn">VISUALIZAR CARDÁPIO COMPLETO</button>
+        </div>
+    </section>
+
+    <!-- Price Menu -->
+    <section class="price-menu">
+        <div class="container">
+            <div class="price-grid">
+                <div class="price-section">
+                    <h3>Pizzas</h3>
+                    <div class="price-item">
+                        <h4>Pizza Queijo</h4>
+                        <p>Pizza de queijo mussarela</p>
+                        <p>Média - $20,00</p>
+                        <p>Grande - $35,00</p>
+                    </div>
+                    <div class="price-item">
+                        <h4>Pizza Pepperoni</h4>
+                        <p>Pizza clássica de pepperoni</p>
+                        <p>Média $20</p>
+                        <p>Grande $35</p>
+                    </div>
+                    <div class="price-item">
+                        <h4>Pizza Vegetariana</h4>
+                        <p>Abobrinha, pimentão, berinjela, tomate, cebola e orégano</p>
+                        <p>Média - $20</p>
+                        <p>Grande - $35</p>
+                    </div>
+                    <div class="price-item">
+                        <h4>Pizza Portuguesa</h4>
+                        <p>Presunto, ovos, cebola, azeitona e pimentão sobre uma base generosa de queijo e molho de tomate.</p>
+                        <p>Média - $20</p>
+                        <p>Grande - $35</p>
+                    </div>
+                    <div class="price-item">
+                        <h4>Pizza Margherita</h4>
+                        <p>Molho de tomate, mussarela fresca e manjericão</p>
+                        <p>Média - $20</p>
+                        <p>Grande - $35</p>
+                    </div>
+                    <div class="price-item">
+                        <h4>Pizza Calabresa</h4>
+                        <p>Fatias de linguiça calabresa levemente picantes com cebola e orégano.</p>
+                        <p>Média - $20</p>
+                        <p>Grande - $35</p>
+                    </div>
+                </div>
+                
+                <div class="price-section">
+                    <h3>Pizzas Especiais</h3>
+                    <div class="price-item">
+                        <h4>BellaCrosta Especial</h4>
+                        <p>Combinação exclusiva de carne seca desfiada, catupiry, cebola roxa e toque de pimenta biquinho</p>
+                        <p>Média - $35,00</p>
+                        <p>Grande - $50,00</p>
+                    </div>
+                    <div class="price-item">
+                        <h4>Romeu e Julieta</h4>
+                        <p>Queijo minas com goiabada derretida sobre uma massa leve e crocante</p>
+                        <p>Média - $30,00</p>
+                        <p>Grande - $45,00</p>
+                    </div>
+                    <h3>Bebidas</h3>
+                    <div class="price-item">
+                        <h4>Refrigerante</h4>
+                        <p>Diversas opções de refrigerante</p>
+                        <p>Lata 300ml - $8,00</p>
+                        <p>Refrigerante 2L - $12,00</p>
+                    </div>
+                    <div class="price-item">
+                        <h4>Vinho</h4>
+                        <p>Diversas opões de vinho</p>
+                        <p>Garrafa 1L - $25,00</p>
+                        <p>Garrafa 2L - $35,00</p>
+                    </div>
+                    <div class="price-item">
+                        <h4>Champanhe</h4>
+                        <p>Diversas opões de champanhe</p>
+                        <p>Garrafa 1L - $25,00</p>
+                        <p>Garrafa 2L - $35,00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Bem vindo à Pizzaria BellaCrosta</h2>
+                    <p>Somos especializados na autêntica pizza napolitana, assada quente e rapidamente em forno de tijolos para obter uma crosta lisa muito especial, nem muito fina, nem muito grossa, feita a partir de uma receita que foi transmitida por cinco gerações.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-leaf"></i>
+                            <span>Sabores e Fresca diariamente</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-trophy"></i>
+                            <span>Melhor pizza de Brasília</span>
+                        </div>
+                    </div>
+                    
+                    <button class="menu-btn">VISUALIZAR MENU</button>
+                </div>
+                
+                <div class="about-images">
+                    <div class="about-image-grid">
+                        <img src="https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop" alt="Pizza Margherita">
+                        <img src="https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop" alt="Pizza no forno">
+                        <img src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop" alt="Ingredientes frescos">
+                        <img src="https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop" alt="Pizza assada">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brazilian Flavor Section -->
+    <section class="brazilian-section">
+        <div class="container">
+            <h2>O sabor de Brasília</h2>
+            <div class="brazilian-content">
+                <div class="brazilian-text">
+                    <h3>Fornos à lenha</h3>                
+                    <h3>Sabores e aromas</h3>
+                    <h3>Certificado fresco na Itália</h3>
+                    <h3>Exemplo de italo</h3>
+                </div>
+                <div class="brazilian-images">
+                    <img src="https://images.pexels.com/photos/4349775/pexels-photo-4349775.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop" alt="Forno à lenha">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contato" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LOCALIZAÇÃO</h3>
+                    <p>St. do Habitante<br>
+                    Individual Sul - Lago Sul<br>
+                    Brasília - DF</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>FUNCIONAMENTO</h3>
+                    <p>Segunda - Sexta<br>
+                    18:00 - 00:00<br>
+                    Sábado, Domingo e<br>
+                    Feriado<br>
+                    16:00 - 01:00</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>CONTATO</h3>
+                    <p>(61) 3234-5678<br>
+                    4002-8922<br>
+                    crostabella@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy;2024 BellaCrosta. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
