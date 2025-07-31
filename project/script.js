@@ -47,19 +47,19 @@ class PizzaCarousel {
         this.totalSlides = this.slides.length;
         this.prevBtn = document.querySelector('.prev-btn');
         this.nextBtn = document.querySelector('.next-btn');
-        
+
         this.init();
     }
-    
+
     init() {
         this.showSlide(this.currentSlide);
         this.prevBtn.addEventListener('click', () => this.prevSlide());
         this.nextBtn.addEventListener('click', () => this.nextSlide());
-        
+
         // Auto-play carousel
         setInterval(() => this.nextSlide(), 4000);
     }
-    
+
     showSlide(index) {
         this.slides.forEach((slide, i) => {
             slide.classList.remove('active');
@@ -68,12 +68,12 @@ class PizzaCarousel {
             }
         });
     }
-    
+
     nextSlide() {
         this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
         this.showSlide(this.currentSlide);
     }
-    
+
     prevSlide() {
         this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
         this.showSlide(this.currentSlide);
@@ -133,153 +133,26 @@ function showReservationModal() {
             </div>
         </div>
     `;
-    
+
     document.body.appendChild(modal);
-    
+
     // Close modal functionality
     const closeModal = () => {
         modal.remove();
     };
-    
+
     modal.querySelector('.close-modal').addEventListener('click', closeModal);
     modal.querySelector('.cancel-btn').addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModal();
     });
-    
+
     // Form submission
     modal.querySelector('.reservation-form').addEventListener('submit', (e) => {
         e.preventDefault();
         alert('Reserva confirmada! Entraremos em contato em breve.');
         closeModal();
-    });
-    
-    // Add modal styles
-    const modalStyles = `
-        .reservation-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        .modal-content {
-            background: #fff;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 500px;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .modal-header h2 {
-            color: #333;
-            margin: 0;
-        }
-        
-        .close-modal {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #666;
-        }
-        
-        .modal-body {
-            padding: 1.5rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #333;
-        }
-        
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #e74c3c;
-        }
-        
-        .form-actions {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .submit-btn {
-            flex: 1;
-            background: #e74c3c;
-            color: #fff;
-            border: none;
-            padding: 0.75rem;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        
-        .submit-btn:hover {
-            background: #c0392b;
-        }
-        
-        .cancel-btn {
-            flex: 1;
-            background: transparent;
-            color: #666;
-            border: 2px solid #ddd;
-            padding: 0.75rem;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .cancel-btn:hover {
-            border-color: #999;
-            color: #333;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-    `;
-    
-    const styleSheet = document.createElement('style');
-    styleSheet.textContent = modalStyles;
-    document.head.appendChild(styleSheet);
+    });  
 }
 
 // Add event listeners for reservation buttons
@@ -289,6 +162,135 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', showReservationModal);
     });
 });
+
+
+
+// Login/Cadastro modal functionality
+function showLoginModal() {
+    const modal = document.createElement('div');
+    modal.className = 'login-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Seja bem-vindo!</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form login">
+                    <div class="form-content">
+                        <header>Login</header>
+                        <form action="#" class="login-form">
+                            <div class="field input-field">
+                                <input type="email" placeholder="Email" class="input">
+                            </div>
+                            <div class="field input-field">
+                                <input type="password" placeholder="Digite uma senha" class="password">
+                            </div>
+                            <div class="field button-field">
+                                <button type="submit">Login</button>
+                            </div>
+                        </form>
+                        <div class="form-link">
+                            <span>Não possue conta? <a href="#" class="link signup-link">Registra-se</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form signup">
+                    <div class="form-content">
+                        <header>Cadastrar</header>
+                        <form action="#" class="signup-form">
+                            <div class="field input-field">
+                                <input type="text" placeholder="Nome" class="input">
+                            </div>
+                            <div class="field input-field">
+                                <input type="text" placeholder="CPF" class="input">
+                            </div>
+                            <div class="field input-field">
+                                <input type="email" placeholder="Email" class="input">
+                            </div>
+                            <div class="field input-field">
+                                <input type="text" placeholder="Telefone" class="input">
+                            </div>
+                            <div class="field input-field">
+                                <input type="password" placeholder="Senha" class="password">
+                            </div>
+                            <div class="form-link">
+                                <a href="#" class="forgot-pass">Esqueceu sua senha?</a>
+                            </div>
+                            <div class="field button-field">
+                                <button type="submit">Cadastrar</button>
+                            </div>
+                        </form>
+                        <div class="form-link">
+                            <span>Já tem conta? <a href="#" class="link login-link">Login</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    // Função de fechar o modal
+    const closeModal = () => modal.remove();
+
+    modal.querySelector('.close-modal').addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // Submissão do login
+    modal.querySelector('.login-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Login efetuado com sucesso!');
+        closeModal();
+    });
+
+    // Alternância entre formulários
+    const loginForm = modal.querySelector('.form.login');
+    const signupForm = modal.querySelector('.form.signup');
+    signupForm.style.display = 'none';
+
+    modal.querySelector('.signup-link').addEventListener('click', (e) => {
+        e.preventDefault();
+        loginForm.style.display = 'none';
+        signupForm.style.display = 'block';
+    });
+
+    modal.querySelector('.login-link').addEventListener('click', (e) => {
+        e.preventDefault();
+        signupForm.style.display = 'none';
+        loginForm.style.display = 'block';
+    });
+
+    // Submissão do cadastro
+    modal.querySelector('.signup-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Cadastro efetuado, faça login');
+        signupForm.style.display = 'none';
+        loginForm.style.display = 'block';
+    });
+
+
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = modalStyles;
+    document.head.appendChild(styleSheet);
+}
+
+// Ativa o modal ao clicar no "Entrar"
+document.addEventListener('DOMContentLoaded', function () {
+    const entrarLink = document.querySelector('.nav-link.entrar');
+
+    if (entrarLink) {
+        entrarLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            showLoginModal();
+        });
+    }
+});
+
+
 
 // Menu visualization functionality
 document.querySelector('.view-menu-btn').addEventListener('click', () => {
@@ -340,7 +342,7 @@ document.querySelectorAll('.service-card').forEach((card, index) => {
             });
         }
     });
-    
+
     // Add cursor pointer
     card.style.cursor = 'pointer';
 });
@@ -365,7 +367,7 @@ function initContactForm() {
 // Initialize all functionality
 document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
-    
+
     // Add loading animation to images
     const images = document.querySelectorAll('img');
     images.forEach(img => {
