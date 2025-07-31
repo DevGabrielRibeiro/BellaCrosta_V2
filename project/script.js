@@ -152,7 +152,7 @@ function showReservationModal() {
         e.preventDefault();
         alert('Reserva confirmada! Entraremos em contato em breve.');
         closeModal();
-    });  
+    });
 }
 
 // Add event listeners for reservation buttons
@@ -241,11 +241,37 @@ function showLoginModal() {
     });
 
     // Submissão do login
-    modal.querySelector('.login-form').addEventListener('submit', (e) => {
+    modal.querySelector('.login-form').addEventListener('submit', e => {
         e.preventDefault();
+
+        // Aqui você pode validar o login com backend se quiser
+
         alert('Login efetuado com sucesso!');
         closeModal();
+
+        // Alterar o botão "Entrar" para "Sair"
+        const entrarLink = document.querySelector('.nav-link.entrar');
+        if (entrarLink) {
+            entrarLink.textContent = 'Sair';
+            entrarLink.classList.remove('entrar');
+            entrarLink.classList.add('sair');
+
+            // Define o evento de logout
+            entrarLink.addEventListener('click', function logout(e) {
+                e.preventDefault();
+                // Confirmação (opcional)
+                if (confirm("Deseja sair?")) {
+                    entrarLink.textContent = 'Entrar';
+                    entrarLink.classList.remove('sair');
+                    entrarLink.classList.add('entrar');
+
+                    // Remove este event listener de logout para evitar duplicação
+                    entrarLink.removeEventListener('click', logout);
+                }
+            });
+        }
     });
+
 
     // Alternância entre formulários
     const loginForm = modal.querySelector('.form.login');
