@@ -200,7 +200,7 @@ function showLoginModal() {
                         <header>Cadastrar</header>
                         <form action="#" class="signup-form">
                             <div class="field input-field">
-                                <input type="text" placeholder="Nome" class="input">
+                                <input type="text" placeholder="Nome" class="input" name="nome">
                             </div>
                             <div class="field input-field">
                                 <input type="text" placeholder="CPF" class="input">
