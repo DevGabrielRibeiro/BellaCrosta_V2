@@ -99,11 +99,11 @@ function showReservationModal() {
                 <form class="reservation-form">
                     <div class="form-group">
                         <label for="name">Nome:</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" required ${currentUser ? 'readonly' : ''}>
                     </div>
                     <div class="form-group">
                         <label for="phone">Telefone:</label>
-                        <input type="tel" id="phone" name="phone" required>
+                        <input type="tel" id="phone" name="phone" required ${currentUser ? 'readonly' : ''}>
                     </div>
                     <div class="form-group">
                         <label for="date">Data:</label>
@@ -135,6 +135,12 @@ function showReservationModal() {
     `;
 
     document.body.appendChild(modal);
+    
+    // Preencher campos automaticamente se o usuário estiver logado
+    if (currentUser) {
+        modal.querySelector('#name').value = currentUser.nome;
+        modal.querySelector('#phone').value = currentUser.telefone;
+    }
 
     // Close modal functionality
     const closeModal = () => {
@@ -150,7 +156,25 @@ function showReservationModal() {
     // Form submission
     modal.querySelector('.reservation-form').addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('Reserva confirmada! Entraremos em contato em breve.');
+        
+        const formData = {
+            nome: modal.querySelector('#name').value,
+            telefone: modal.querySelector('#phone').value,
+            data: modal.querySelector('#date').value,
+            horario: modal.querySelector('#time').value,
+            pessoas: modal.querySelector('#people').value
+        };
+        
+        // Salvar reserva no localStorage (opcional)
+        const reservas = JSON.parse(localStorage.getItem('reservas') || '[]');
+        reservas.push({
+            ...formData,
+            dataReserva: new Date().toISOString(),
+            usuario: currentUser ? currentUser.email : 'Não logado'
+        });
+        localStorage.setItem('reservas', JSON.stringify(reservas));
+        
+        alert(`Reserva confirmada para ${formData.nome}! Entraremos em contato em breve.`);
         closeModal();
     });
 }
@@ -166,6 +190,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Login/Cadastro modal functionality
+let currentUser = null;
+
+// Função para salvar dados do usuário
+function saveUserData(userData) {
+    localStorage.setItem('currentUser', JSON.stringify(userData));
+    currentUser = userData;
+}
+
+// Função para carregar dados do usuário
+function loadUserData() {
+    const userData = localStorage.getItem('currentUser');
+    if (userData) {
+        currentUser = JSON.parse(userData);
+        return currentUser;
+    }
+    return null;
+}
+
+// Função para fazer logout
+function logoutUser() {
+    localStorage.removeItem('currentUser');
+    currentUser = null;
+}
+
 function showLoginModal() {
     const modal = document.createElement('div');
     modal.className = 'login-modal';
@@ -200,16 +248,16 @@ function showLoginModal() {
                         <header>Cadastrar</header>
                         <form action="#" class="signup-form">
                             <div class="field input-field">
-                                <input type="text" placeholder="Nome" class="input" name="nome">
+                                <input type="text" placeholder="Nome" class="input" name="nome" id="signup-nome">
                             </div>
                             <div class="field input-field">
                                 <input type="text" placeholder="CPF" class="input">
                             </div>
                             <div class="field input-field">
-                                <input type="email" placeholder="Email" class="input">
+                                <input type="email" placeholder="Email" class="input" id="signup-email">
                             </div>
                             <div class="field input-field">
-                                <input type="text" placeholder="Telefone" class="input">
+                                <input type="text" placeholder="Telefone" class="input" id="signup-telefone">
                             </div>
                             <div class="field input-field">
                                 <input type="password" placeholder="Senha" class="password">
@@ -243,32 +291,28 @@ function showLoginModal() {
     // Submissão do login
     modal.querySelector('.login-form').addEventListener('submit', e => {
         e.preventDefault();
-
-        // Aqui você pode validar o login com backend se quiser
-
-        alert('Login efetuado com sucesso!');
-        closeModal();
-
-        // Alterar o botão "Entrar" para "Sair"
-        const entrarLink = document.querySelector('.nav-link.entrar');
-        if (entrarLink) {
-            entrarLink.textContent = 'Sair';
-            entrarLink.classList.remove('entrar');
-            entrarLink.classList.add('sair');
-
-            // Define o evento de logout
-            entrarLink.addEventListener('click', function logout(e) {
-                e.preventDefault();
-                // Confirmação (opcional)
-                if (confirm("Deseja sair?")) {
-                    entrarLink.textContent = 'Entrar';
-                    entrarLink.classList.remove('sair');
-                    entrarLink.classList.add('entrar');
-
-                    // Remove este event listener de logout para evitar duplicação
-                    entrarLink.removeEventListener('click', logout);
-                }
+        
+        const email = modal.querySelector('.login-form input[type="email"]').value;
+        
+        // Verificar se o usuário existe no localStorage
+        const users = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+        const user = users.find(u => u.email === email);
+        
+        if (user) {
+            // Salvar dados do usuário logado
+            saveUserData({
+                nome: user.nome,
+                email: user.email,
+                telefone: user.telefone
             });
+            
+            alert('Login efetuado com sucesso!');
+            closeModal();
+
+            // Alterar o botão "Entrar" para "Sair"
+            updateLoginButton();
+        } else {
+            alert('Usuário não encontrado. Verifique suas credenciais ou faça o cadastro.');
         }
     });
 
@@ -293,7 +337,36 @@ function showLoginModal() {
     // Submissão do cadastro
     modal.querySelector('.signup-form').addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('Cadastro efetuado, faça login');
+        
+        const nome = modal.querySelector('#signup-nome').value;
+        const email = modal.querySelector('#signup-email').value;
+        const telefone = modal.querySelector('#signup-telefone').value;
+        
+        // Validar se todos os campos estão preenchidos
+        if (!nome || !email || !telefone) {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return;
+        }
+        
+        // Salvar usuário no localStorage
+        const users = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+        
+        // Verificar se o email já existe
+        if (users.find(u => u.email === email)) {
+            alert('Este email já está cadastrado. Faça login ou use outro email.');
+            return;
+        }
+        
+        const newUser = {
+            nome: nome,
+            email: email,
+            telefone: telefone
+        };
+        
+        users.push(newUser);
+        localStorage.setItem('registeredUsers', JSON.stringify(users));
+        
+        alert('Cadastro efetuado com sucesso! Faça login para continuar.');
         signupForm.style.display = 'none';
         loginForm.style.display = 'block';
     });
@@ -304,8 +377,48 @@ function showLoginModal() {
     document.head.appendChild(styleSheet);
 }
 
+// Função para atualizar o botão de login/logout
+function updateLoginButton() {
+    const entrarLink = document.querySelector('.nav-link.entrar, .nav-link.sair');
+    if (!entrarLink) return;
+    
+    if (currentUser) {
+        entrarLink.textContent = 'Sair';
+        entrarLink.classList.remove('entrar');
+        entrarLink.classList.add('sair');
+        
+        // Remove event listeners anteriores
+        entrarLink.replaceWith(entrarLink.cloneNode(true));
+        const newEntrarLink = document.querySelector('.nav-link.sair');
+        
+        newEntrarLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (confirm("Deseja sair?")) {
+                logoutUser();
+                newEntrarLink.textContent = 'Entrar';
+                newEntrarLink.classList.remove('sair');
+                newEntrarLink.classList.add('entrar');
+                
+                // Reativar o modal de login
+                newEntrarLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showLoginModal();
+                });
+            }
+        });
+    } else {
+        entrarLink.textContent = 'Entrar';
+        entrarLink.classList.remove('sair');
+        entrarLink.classList.add('entrar');
+    }
+}
+
 // Ativa o modal ao clicar no "Entrar"
 document.addEventListener('DOMContentLoaded', function () {
+    // Carregar dados do usuário se existirem
+    loadUserData();
+    updateLoginButton();
+    
     const entrarLink = document.querySelector('.nav-link.entrar');
 
     if (entrarLink) {
