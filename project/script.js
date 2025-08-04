@@ -183,7 +183,15 @@ function showReservationModal() {
 document.addEventListener('DOMContentLoaded', () => {
     const reservationButtons = document.querySelectorAll('.cta-button, .reserve-btn');
     reservationButtons.forEach(button => {
-        button.addEventListener('click', showReservationModal);
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Se não estiver logado, mostra o modal de login
+            if (!currentUser) {
+                showLoginModal();
+            } else {
+                showReservationModal();
+            }
+        });
     });
 });
 
