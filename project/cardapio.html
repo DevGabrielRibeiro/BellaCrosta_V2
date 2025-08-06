@@ -32,6 +32,10 @@
                     <span></span>
                     <span></span>
                 </div>
+                <!-- Ícone do carrinho -->
+                <div class="cart-icon" id="abrir-carrinho" style="cursor:pointer; margin-left:20px;">
+                    <i class="fa fa-shopping-cart fa-2x"></i>
+                </div>
             </div>
         </nav>
     </header>
@@ -51,50 +55,85 @@
                     <p>Cobertura clássica Pizza de Alho com molho de creme de sua escolha.</p>
                     <p>Média 25$</p>
                     <p>Grande 35$</p>
+                    <div class="comprar-container">
+                        <select class="select-tamanho">
+                            <option value="media" data-preco="25">Média</option>
+                            <option value="grande" data-preco="35">Grande</option>
+                        </select>
+                        <button class="btn-comprar" data-nome="Pizza de Alho" data-preco="25">Comprar</button>
+                    </div>
                 </div>
 
                 <div class="menu-item">
                     <div class="menu-image">
-                        <img src="https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop"
-                            alt="Pizza Pepperoni">
+                        <img src="img/marguerita.png"
+                            alt="Pizza Marguerita">
                     </div>
-                    <h3>Pizza Pepperoni</h3>
-                    <p>Pizza clássica de pepperoni com molho de tomate e queijo mussarela.</p>
+                    <h3>Pizza Marguerita'</h3>
+                    <p>Pizza clássica de marguerita com molho de tomate e queijo mussarela.</p>
                     <p>Média 25$</p>
                     <p>Grande 35$</p>
+                    <div class="comprar-container">
+                        <select class="select-tamanho">
+                            <option value="media" data-preco="25">Média</option>
+                            <option value="grande" data-preco="35">Grande</option>
+                        </select>
+                        <button class="btn-comprar" data-nome="Pizza Pepperoni" data-preco="25">Comprar</button>
+                    </div>
                 </div>
 
                 <div class="menu-item">
                     <div class="menu-image">
-                        <img src="https://images.pexels.com/photos/1653877/pexels-photo-1653877.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop"
-                            alt="Pizza Vegetariana">
+                        <img src="img/mussarela.png"
+                            alt="Pizza Mussarela">
                     </div>
-                    <h3>Pizza Vegetariana</h3>
-                    <p>Molho de tomate, mussarela, tomate cereja, cebola, cogumelos, pimentão, azeitona e orégano fresco.</p>
+                    <h3>Pizza Mussarela</h3>
+                    <p>Molho de tomate, mussarela.</p>
                     <p>Média 25$</p>
                     <p>Grande 35$</p>
+                    <div class="comprar-container">
+                        <select class="select-tamanho">
+                            <option value="media" data-preco="25">Média</option>
+                            <option value="grande" data-preco="35">Grande</option>
+                        </select>
+                        <button class="btn-comprar" data-nome="Pizza Vegetariana" data-preco="25">Comprar</button>
+                    </div>
                 </div>
 
                 <div class="menu-item">
                     <div class="menu-image">
-                        <img src="https://images.pexels.com/photos/1166120/pexels-photo-1166120.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop"
-                            alt="Pizza Rústica">
+                        <img src="img/bananacomcanela.png"
+                            alt="Pizza Banana com Canela">
                     </div>
-                    <h3>Pizza Rústica</h3>
-                    <p>Molho de tomate, mussarela, linguiça tipo crocante, pimentão vermelho, cebola e azeitona preta.</p>
+                    <h3>Pizza Banana com Canela</h3>
+                    <p>Massa de pizza, banana, canela e açúcar.</p>
                     <p>Média 25$</p>
                     <p>Grande 35$</p>
+                    <div class="comprar-container">
+                        <select class="select-tamanho">
+                            <option value="media" data-preco="25">Média</option>
+                            <option value="grande" data-preco="35">Grande</option>
+                        </select>
+                        <button class="btn-comprar" data-nome="Pizza Rústica" data-preco="25">Comprar</button>
+                    </div>
                 </div>
 
                 <div class="menu-item">
                     <div class="menu-image">
-                        <img src="https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop"
-                            alt="Pizza Delicious">
+                        <img src="img/portuguesa.png"
+                            alt="Pizza Portuguesa">
                     </div>
-                    <h3>Pizza Delicious</h3>
-                    <p>Mistura de cogumelos porcini, frutos deliciosos, mussarela, cogumelos frescos e cebola crocante.</p>
-                    <p>Média 30$</p>
+                    <h3>Pizza Portuguesa</h3>
+                    <p>Presunto, ovos, cebola, azeitona e pimentão sobre queijo e molho de tomate.</p>
+                    <p>Média 28$</p>
                     <p>Grande 40$</p>
+                    <div class="comprar-container">
+                        <select class="select-tamanho">
+                            <option value="media" data-preco="30">Média</option>
+                            <option value="grande" data-preco="40">Grande</option>
+                        </select>
+                        <button class="btn-comprar" data-nome="Pizza Delicious" data-preco="30">Comprar</button>
+                    </div>
                 </div>
 
                 <div class="menu-item">
@@ -106,6 +145,13 @@
                     <p>Molho premium clássico, tomate cereja fresco, pimentão vermelho e ervas verdes.</p>
                     <p>Média 25$</p>
                     <p>Grande 35$</p>
+                    <div class="comprar-container">
+                        <select class="select-tamanho">
+                            <option value="media" data-preco="25">Média</option>
+                            <option value="grande" data-preco="35">Grande</option>
+                        </select>
+                        <button class="btn-comprar" data-nome="Pizza de Tomate" data-preco="25">Comprar</button>
+                    </div>
                 </div>
 
                 <div class="menu-item">
@@ -117,6 +163,13 @@
                     <p>Presunto, ovos, cebola, azeitona e pimentão sobre queijo e molho de tomate.</p>
                     <p>Média 28$</p>
                     <p>Grande 38$</p>
+                    <div class="comprar-container">
+                        <select class="select-tamanho">
+                            <option value="media" data-preco="28">Média</option>
+                            <option value="grande" data-preco="38">Grande</option>
+                        </select>
+                        <button class="btn-comprar" data-nome="Pizza Portuguesa" data-preco="28">Comprar</button>
+                    </div>
                 </div>
 
                 <div class="menu-item">
@@ -128,6 +181,13 @@
                     <p>Molho de tomate, mussarela fresca e manjericão.</p>
                     <p>Média 25$</p>
                     <p>Grande 35$</p>
+                    <div class="comprar-container">
+                        <select class="select-tamanho">
+                            <option value="media" data-preco="25">Média</option>
+                            <option value="grande" data-preco="35">Grande</option>
+                        </select>
+                        <button class="btn-comprar" data-nome="Pizza Margherita" data-preco="25">Comprar</button>
+                    </div>
                 </div>
 
                 <div class="menu-item">
@@ -139,6 +199,13 @@
                     <p>Fatias de linguiça calabresa levemente picantes com cebola e orégano.</p>
                     <p>Média 25$</p>
                     <p>Grande 35$</p>
+                    <div class="comprar-container">
+                        <select class="select-tamanho">
+                            <option value="media" data-preco="25">Média</option>
+                            <option value="grande" data-preco="35">Grande</option>
+                        </select>
+                        <button class="btn-comprar" data-nome="Pizza Calabresa" data-preco="25">Comprar</button>
+                    </div>
                 </div>
 
                 <div class="menu-item">
@@ -150,6 +217,13 @@
                     <p>Carne seca desfiada, catupiry, cebola roxa e pimenta biquinho.</p>
                     <p>Média 35$</p>
                     <p>Grande 50$</p>
+                    <div class="comprar-container">
+                        <select class="select-tamanho">
+                            <option value="media" data-preco="35">Média</option>
+                            <option value="grande" data-preco="50">Grande</option>
+                        </select>
+                        <button class="btn-comprar" data-nome="BellaCrosta Especial" data-preco="35">Comprar</button>
+                    </div>
                 </div>
 
                 <div class="menu-item">
@@ -161,10 +235,120 @@
                     <p>Queijo minas com goiabada derretida sobre massa leve e crocante.</p>
                     <p>Média 30$</p>
                     <p>Grande 45$</p>
+                    <div class="comprar-container">
+                        <select class="select-tamanho">
+                            <option value="media" data-preco="30">Média</option>
+                            <option value="grande" data-preco="45">Grande</option>
+                        </select>
+                        <button class="btn-comprar" data-nome="Romeu e Julieta" data-preco="30">Comprar</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Removido: Modal do Carrinho e scripts relacionados -->
+
+    <script>
+    // Funções para localStorage do carrinho
+    function getCarrinho() {
+        return JSON.parse(localStorage.getItem('carrinho') || '[]');
+    }
+    function setCarrinho(carrinho) {
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    }
+
+    // Botão comprar: adiciona ao carrinho e destaca ícone
+    document.querySelectorAll('.menu-item').forEach(item => {
+        const btn = item.querySelector('.btn-comprar');
+        const select = item.querySelector('.select-tamanho');
+        if (btn && select) {
+            btn.onclick = function() {
+                const nome = btn.getAttribute('data-nome') + ' (' + select.options[select.selectedIndex].text + ')';
+                const preco = parseFloat(select.options[select.selectedIndex].getAttribute('data-preco'));
+                let carrinho = getCarrinho();
+                const existente = carrinho.find(item => item.nome === nome);
+                if (existente) {
+                    existente.quantidade += 1;
+                } else {
+                    carrinho.push({ nome, preco, quantidade: 1 });
+                }
+                setCarrinho(carrinho);
+                // Destaque visual no ícone do carrinho
+                const cartIcon = document.getElementById('abrir-carrinho');
+                if (cartIcon) {
+                    cartIcon.classList.add('cart-highlight');
+                    setTimeout(() => cartIcon.classList.remove('cart-highlight'), 800);
+                }
+            };
+        }
+    });
+
+    // Ícone do carrinho redireciona para carrinho.html
+    document.getElementById('abrir-carrinho').onclick = function() {
+        window.location.href = 'carrinho.html';
+    };
+    </script>
+    <style>
+    .cart-highlight {
+        animation: cart-bounce 0.8s;
+    }
+    @keyframes cart-bounce {
+        0% { transform: scale(1);}
+        30% { transform: scale(1.25);}
+        60% { transform: scale(0.95);}
+        100% { transform: scale(1);}
+    }
+    .comprar-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 14px;
+        gap: 10px;
+        width: 100%;
+    }
+    .select-tamanho {
+        padding: 8px 16px;
+        border-radius: 6px;
+        border: 2px solid #e67e22;
+        background: #fff7ef;
+        color: #e67e22;
+        font-size: 1rem;
+        font-weight: 600;
+        outline: none;
+        transition: border 0.2s, box-shadow 0.2s;
+        margin-bottom: 0;
+        width: 160px;
+        text-align: center;
+        box-shadow: 0 1px 4px rgba(230,126,34,0.06);
+    }
+    .select-tamanho:focus {
+        border: 2px solid #d35400;
+        box-shadow: 0 0 0 2px #f3e0d0;
+    }
+    .btn-comprar {
+        margin: 0 auto;
+        display: block;
+        margin-top: 0;
+        background: #e67e22;
+        color: #fff;
+        border: none;
+        padding: 12px 32px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 1.08rem;
+        letter-spacing: 1px;
+        box-shadow: 0 2px 8px rgba(230,126,34,0.08);
+        transition: background 0.2s, box-shadow 0.2s;
+        width: 160px;
+        text-align: center;
+    }
+    .btn-comprar:hover {
+        background: #d35400;
+        box-shadow: 0 4px 16px rgba(230,126,34,0.13);
+    }
+    </style>
 
     <!-- Footer -->
     <footer id="contato" class="footer">

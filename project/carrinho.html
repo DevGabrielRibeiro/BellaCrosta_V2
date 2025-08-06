@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho | BellaCrosta</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="img/Logo_BellaCrosta.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+    body {
+        background: #faf6f2;
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .header {
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        padding: 0.5rem 0;
+    }
+    .navbar {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #e67e22;
+    }
+    .logo img {
+        height: 48px;
+        width: 48px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid #e67e22;
+    }
+    .main-center-wrapper {
+        flex: 1 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 80vh;
+    }
+    .cart-page-main {
+        width: 100%;
+        max-width: 520px;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 16px rgba(230,126,34,0.10);
+        padding: 2.5rem 2rem 2rem 2rem;
+        border: 2px solid #e67e22;
+        margin: 40px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .carrinho-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 1.5rem;
+        color: #e67e22;
+        justify-content: center;
+        width: 100%;
+    }
+    .carrinho-header h2 {
+        color: #e67e22;
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0;
+        letter-spacing: 1px;
+    }
+    .voltar-link {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: #e67e22;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: color 0.2s;
+    }
+    .voltar-link:hover {
+        text-decoration: underline;
+        color: #d35400;
+    }
+    .carrinho-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 14px;
+        background: #fff7ef;
+        border-radius: 8px;
+        padding: 12px 14px;
+        font-size: 1.08rem;
+        border: 1px solid #f3e0d0;
+        box-shadow: 0 1px 4px rgba(230,126,34,0.04);
+        justify-content: center;
+    }
+    .carrinho-item button {
+        width: 28px; height: 28px; font-size: 1.1rem;
+        background: #e67e22;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.2s;
+    }
+    .carrinho-item button:hover {
+        background: #d35400;
+    }
+    #carrinho-total {
+        margin-top: 18px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #27ae60;
+        text-align: right;
+        letter-spacing: 1px;
+        width: 100%;
+    }
+    #form-finalizar {
+        margin-top: 28px;
+        background: #fff7ef;
+        border-radius: 10px;
+        padding: 20px 18px 12px 18px;
+        box-shadow: 0 1px 4px rgba(230,126,34,0.04);
+        border: 1px solid #f3e0d0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #form-finalizar h3 {
+        color: #e67e22;
+        margin-top: 0;
+        margin-bottom: 12px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+    #form-finalizar label {
+        display: block;
+        margin-bottom: 10px;
+        color: #333;
+        font-size: 1rem;
+        width: 100%;
+    }
+    #form-finalizar input[type="text"],
+    #form-finalizar input[type="tel"] {
+        width: 100%;
+        padding: 8px 12px;
+        border-radius: 4px;
+        border: 1.5px solid #e0e0e0;
+        margin-top: 4px;
+        font-size: 1rem;
+        background: #fff;
+        box-sizing: border-box;
+        transition: border 0.2s;
+    }
+    #form-finalizar input[type="text"]:focus,
+    #form-finalizar input[type="tel"]:focus {
+        border: 1.5px solid #e67e22;
+        outline: none;
+    }
+    .btn-finalizar {
+        margin-top: 10px;
+        background: #e67e22;
+        color: #fff;
+        border: none;
+        padding: 12px 0;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: background 0.2s;
+        width: 100%;
+        letter-spacing: 1px;
+        box-shadow: 0 2px 8px rgba(230,126,34,0.08);
+    }
+    .btn-finalizar:hover {
+        background: #d35400;
+    }
+    #pix-area {
+        display: none;
+        text-align: center;
+        margin-top: 24px;
+        background: #fff7ef;
+        border-radius: 10px;
+        padding: 18px 10px 10px 10px;
+        box-shadow: 0 1px 4px rgba(230,126,34,0.04);
+        border: 1px solid #f3e0d0;
+    }
+    #pix-area h3 {
+        color: #27ae60;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    #pix-area img {
+        border: 2px solid #e67e22;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        background: #fff;
+    }
+    #pix-codigo {
+        font-size: 1rem;
+        color: #333;
+        margin-top: 8px;
+        word-break: break-all;
+    }
+    @media (max-width: 600px) {
+        .main-center-wrapper {
+            min-height: unset;
+            padding: 0 0.5rem;
+        }
+        .cart-page-main {
+            padding: 1rem 0.5rem;
+            margin: 20px 0;
+        }
+        .navbar {
+            padding: 0 0.5rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="img/Logo_BellaCrosta.png" alt="BellaCrosta Logo">
+                <span>BellaCrosta</span>
+            </div>
+        </nav>
+    </header>
+    <div class="main-center-wrapper">
+        <main class="cart-page-main">
+            <a href="cardapio.html" class="voltar-link"><i class="fa fa-arrow-left"></i> Voltar ao Cardápio</a>
+            <div class="carrinho-header">
+                <i class="fa fa-shopping-cart fa-2x"></i>
+                <h2>Seu Carrinho</h2>
+            </div>
+            <div id="carrinho-itens"></div>
+            <div id="carrinho-total"></div>
+            <form id="form-finalizar">
+                <h3>Finalizar Compra</h3>
+                <label>Nome:<br>
+                    <input type="text" name="nome" required>
+                </label>
+                <label>Telefone:<br>
+                    <input type="tel" name="telefone" required>
+                </label>
+                <label>Endereço:<br>
+                    <input type="text" name="endereco" required>
+                </label>
+                <button type="submit" class="btn-finalizar">Concluir Compra</button>
+            </form>
+            <div id="pix-area">
+                <h3>Pagamento via PIX</h3>
+                <p>Escaneie o QR Code abaixo para pagar:</p>
+                <img id="pix-qrcode" src="" alt="QR Code PIX" style="width:200px; height:200px;">
+                <p id="pix-codigo"></p>
+            </div>
+        </main>
+    </div>
+    <footer id="contato" class="footer" style="margin-top:40px;">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LOCALIZAÇÃO</h3>
+                    <p>St. do Habitante<br>
+                    Individual Sul - Lago Sul<br>
+                    Brasília - DF</p>
+                </div>
+                <div class="footer-section">
+                    <h3>FUNCIONAMENTO</h3>
+                    <p>Segunda - Sexta<br>
+                    18:00 - 00:00<br>
+                    Sábado, Domingo e<br>
+                    Feriado<br>
+                    16:00 - 01:00</p>
+                </div>
+                <div class="footer-section">
+                    <h3>CONTATO</h3>
+                    <p>(61) 3234-5678<br>
+                    4002-8922<br>
+                    crostabella@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy;2025 BellaCrosta. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+    // Utiliza localStorage para persistir o carrinho entre páginas
+    function getCarrinho() {
+        return JSON.parse(localStorage.getItem('carrinho') || '[]');
+    }
+    function setCarrinho(carrinho) {
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    }
+
+    let carrinho = getCarrinho();
+
+    function atualizarCarrinho() {
+        const carrinhoItens = document.getElementById('carrinho-itens');
+        const carrinhoTotal = document.getElementById('carrinho-total');
+        carrinhoItens.innerHTML = '';
+        let total = 0;
+        if (carrinho.length === 0) {
+            carrinhoItens.innerHTML = '<p style="text-align:center;color:#888;">Seu carrinho está vazio.</p>';
+        }
+        carrinho.forEach((item, idx) => {
+            total += item.preco * item.quantidade;
+            carrinhoItens.innerHTML += `
+                <div class="carrinho-item">
+                    <span>${item.nome}</span>
+                    <button onclick="alterarQtd(${idx}, -1)">-</button>
+                    <span>${item.quantidade}</span>
+                    <button onclick="alterarQtd(${idx}, 1)">+</button>
+                    <span>R$ ${(item.preco * item.quantidade).toFixed(2)}</span>
+                </div>
+            `;
+        });
+        carrinhoTotal.innerHTML = carrinho.length > 0 ? `<strong>Total: R$ ${total.toFixed(2)}</strong>` : '';
+        setCarrinho(carrinho);
+    }
+
+    window.alterarQtd = function(idx, delta) {
+        carrinho[idx].quantidade += delta;
+        if (carrinho[idx].quantidade <= 0) carrinho.splice(idx, 1);
+        atualizarCarrinho();
+    }
+
+    atualizarCarrinho();
+
+    document.getElementById('form-finalizar').onsubmit = function(e) {
+        e.preventDefault();
+        // Gera um código aleatório para o PIX (simulação)
+        const codigoPix = 'pix-' + Math.random().toString(36).substring(2, 12);
+        // Gera um QR Code usando API pública (exemplo: qrserver.com)
+        const urlPix = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(codigoPix)}`;
+        document.getElementById('pix-qrcode').src = urlPix;
+        document.getElementById('pix-codigo').innerText = 'Código PIX: ' + codigoPix;
+        document.getElementById('pix-area').style.display = 'block';
+        this.style.display = 'none';
+        // Limpa o carrinho após a compra (opcional)
+        localStorage.removeItem('carrinho');
+    };
+    </script>
+</body>
+</html>
